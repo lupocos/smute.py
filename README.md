@@ -1,6 +1,8 @@
 # smute.py
 
-Smute.py is a Python script to mute Spotify ads. 
+Smute.py is a Python script to mute Spotify ads.
+
+It only works on Mac OS X.
 
 The script listens for Spotify's NSDistributedNotifications and, whenever it detects
 an advertisement, mutes the system audio by switching the audio source to a dummy 
@@ -19,3 +21,5 @@ I packaged the script inside a native OS X application (`SmutePy.app`),
 using [Platypus](http://www.sveinbjorn.org/platypus).
 
 To mute Spotify ads, simply launch the app and keep it running.
+
+
