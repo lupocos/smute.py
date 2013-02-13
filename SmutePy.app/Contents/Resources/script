@@ -16,14 +16,18 @@ pathname = os.path.dirname(sys.argv[0])
 abspathname = os.path.abspath(pathname)
 
 def is_installed():
-    installed = subprocess.check_output(abspathname+
-        '/SwitchAudioSource -a', 
-        shell=True,
-        stderr=subprocess.STDOUT,
-        )
-    if 'Soundflower (2ch) (output)' in installed and os.path.exists('/Applications/Spotify.app'):
-        return True
-    return False
+    try:
+        installed = subprocess.check_output(abspathname+
+            '/SwitchAudioSource -a', 
+            shell=True,
+            stderr=subprocess.STDOUT,
+            )
+        if 'Soundflower (2ch) (output)' in installed and os.path.exists('/Applications/Spotify.app'):
+            return True
+        return False
+    except subprocess.CalledProcessError, e:
+        print e.output       
+        sys.exit()
 
 def is_running(process):
     tmp = os.popen("ps -Af").read()
@@ -39,14 +43,17 @@ if is_installed():
     if not is_running('Spotify.app'):
         os.system('open /Applications/Spotify.app')
         time.sleep(3)
-
-    currentdevice = subprocess.check_output(abspathname+
-        '/SwitchAudioSource -c', 
-        shell=True,
-        stderr=subprocess.STDOUT,
-        ).split('\n')
-    currentdevice = currentdevice[0]
-    print 'Current audio device =', currentdevice
+    try:    
+        currentdevice = subprocess.check_output(abspathname+
+            '/SwitchAudioSource -c', 
+            shell=True,
+            stderr=subprocess.STDOUT,
+            ).split('\n')
+        currentdevice = currentdevice[0]
+        print 'Current audio device =', currentdevice
+    except subprocess.CalledProcessError, e:
+        print e.output       
+        sys.exit()
 
     set_mute = abspathname+'/SwitchAudioSource -s "Soundflower (2ch)"'
     unset_mute = abspathname+'/SwitchAudioSource -s "'+currentdevice+'"'
