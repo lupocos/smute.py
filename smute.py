@@ -12,6 +12,16 @@ import sys
 from AppKit import *
 from PyObjCTools import AppHelper
 
+def is_installed():
+    installed = subprocess.check_output(
+        'SwitchAudioSource -a', 
+        shell=True,
+        stderr=subprocess.STDOUT,
+        )
+    if 'Soundflower (2ch) (output)' in installed and os.path.exists('/Applications/Spotify.app'):
+        return True
+    return False
+
 def is_running(process):
     tmp = os.popen("ps -Af").read()
     if process not in tmp[:]:
@@ -22,17 +32,16 @@ def is_running(process):
 def is_ad(desc): # returns True when the track is an advertisement
     return "http://" in desc or "https://" in desc or "www." in desc or "spotify:album:" in desc or "spotify:app:" in desc or "spotify:user:" in desc or "spotify:track:" in desc
 
-if os.path.exists('/Applications/Spotify.app'):
+if is_installed():   
     pathname = os.path.dirname(sys.argv[0])        
     abspathname = os.path.abspath(pathname)
-    print 'Path =', abspathname
     
     if not is_running('Spotify.app'):
         os.system('open /Applications/Spotify.app')
         time.sleep(3)
 
     currentdevice = subprocess.check_output(abspathname+
-        '/SwitchAudioSource -c 1>&2; exit 0', 
+        '/SwitchAudioSource -c', 
         shell=True,
         stderr=subprocess.STDOUT,
         ).split('\n')
