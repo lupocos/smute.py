@@ -12,9 +12,12 @@ import sys
 from AppKit import *
 from PyObjCTools import AppHelper
 
+pathname = os.path.dirname(sys.argv[0])        
+abspathname = os.path.abspath(pathname)
+
 def is_installed():
-    installed = subprocess.check_output(
-        'SwitchAudioSource -a', 
+    installed = subprocess.check_output(abspathname+
+        '/SwitchAudioSource -a', 
         shell=True,
         stderr=subprocess.STDOUT,
         )
@@ -33,9 +36,6 @@ def is_ad(desc): # returns True when the track is an advertisement
     return "http://" in desc or "https://" in desc or "www." in desc or "spotify:album:" in desc or "spotify:app:" in desc or "spotify:user:" in desc or "spotify:track:" in desc
 
 if is_installed():   
-    pathname = os.path.dirname(sys.argv[0])        
-    abspathname = os.path.abspath(pathname)
-    
     if not is_running('Spotify.app'):
         os.system('open /Applications/Spotify.app')
         time.sleep(3)
