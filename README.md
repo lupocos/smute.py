@@ -8,19 +8,30 @@ The script listens for Spotify's NSDistributedNotifications and, whenever it det
 an advertisement, mutes the system audio by switching the audio source to a dummy 
 output device.
 
-It includes [SwitchAudioSource](http://code.google.com/p/switchaudio-osx/), a 
+### REQUIREMENTS
+
+To run the script, you first need to install:
+
+* **Soundflower**, a system extension for interapplication audio routing.  
+    Download the latest version from <http://code.google.com/p/soundflower/downloads/list>
+
+### USAGE
+
+To mute Spotify ads, simply launch `SmutePy.app` and keep it running or. If you quit 
+the main Spotify app, SmutePy also quits itself. 
+
+If you like, you may also run the Python script `smute.py` from the Terminal. 
+
+### CREDITS
+
+SmutePy relies on [SwitchAudioSource](http://code.google.com/p/switchaudio-osx/), a 
 command-line utility by [deweller](https://github.com/deweller) to switch the audio 
 source on Mac OS X. 
 
-The script requires [Soundflower](http://code.google.com/p/soundflower/downloads/list), 
-a system extension for interapplication audio routing -- besides of course the 
-official [Spotify](http://www.spotify.com/download) app (which must be installed in 
-the main `/Applications` folder for the script to work).
+I used [Platypus](http://www.sveinbjorn.org/platypus) to package the Python script 
+inside a native OS X application (i.e., `SmutePy.app`).
 
-I packaged the script inside a native OS X application (`SmutePy.app`), 
-using [Platypus](http://www.sveinbjorn.org/platypus).
-
-To mute Spotify ads, simply launch the app and keep it running.
+### CONTACT
 
 Cosimo Lupo  
 lupocos [at] gmail [dot] com
