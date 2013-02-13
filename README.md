@@ -23,6 +23,6 @@ using [Platypus](http://www.sveinbjorn.org/platypus).
 To mute Spotify ads, simply launch the app and keep it running.
 
 Cosimo Lupo  
-lupocos@gmail.com
+lupocos [at] gmail [dot] com
 
 
