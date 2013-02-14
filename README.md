@@ -25,7 +25,9 @@ source on Mac OS X.
 
 For ease of use, I also packaged the Python script inside a stand-alone native OS X application using [Platypus](http://www.sveinbjorn.org/platypus).
 
-You can download the disk image "SmutePy-1.0.dmg" from this [Dropbox link](https://www.dropbox.com/s/ngiaj4guueg763f/SmutePy-1.0.dmg).
+You can download the disk image "SmutePy-1.0.dmg" from this Dropbox link:
+
+<https://www.dropbox.com/s/ngiaj4guueg763f/SmutePy-1.0.dmg>
 
 ### CONTACT
 
