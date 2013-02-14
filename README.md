@@ -21,6 +21,12 @@ SmutePy relies on [SwitchAudioSource](http://code.google.com/p/switchaudio-osx/)
 command-line utility by [deweller](https://github.com/deweller) to switch the audio 
 source on Mac OS X. 
 
+### STAND-ALONE APPLICATION
+
+For ease of use, I also packaged the Python script inside a stand-alone native OS X application using [Platypus](http://www.sveinbjorn.org/platypus).
+
+You can download the disk image "SmutePy-1.0.dmg" from this [Dropbox link](https://www.dropbox.com/s/ngiaj4guueg763f/SmutePy-1.0.dmg).
+
 ### CONTACT
 
 Cosimo Lupo  
