@@ -27,7 +27,7 @@ For ease of use, I also packaged the Python script inside a stand-alone native O
 
 You can download the disk image "SmutePy-1.0.dmg" from this Dropbox link:
 
-<https://www.dropbox.com/s/49iulfv8i8qgnfm/SmutePy-1.0.dmg>
+<https://www.dropbox.com/s/ngiaj4guueg763f/SmutePy-1.0.dmg>
 
 ### CONTACT
 
